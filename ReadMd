@@ -1,0 +1,97 @@
+# What is data Structures?
+Ans:- Data structures allow you to manage data, retrive data, delete data and so on.
+
+Example:- Arrays, Objects, Maps, Sets;
+ [1,2,3] || {name:'sanjay',age:31} || new Map() map.set('a','b')  || new Set() set.add(1)
+
+
+
+# Arrays - A Closer Look;
+	[1,3,6,2]
+	1. Insertion order is kept/memorize;
+	2. Element can be access via index;
+	3. Elemeny (= you can use the for-of-loop)
+	4. Size (length) adjusts dynamically;
+	5. Deletion and findling elements can be require "extra work".
+
+=====================xxxx===========================
+# Sets  - A Closer Look;
+new Set()
+Set.add('pizza')
+Set.add('burger')
+Set.add('pizza') // not allowed;
+
+1. Insertion order in not stored/memorized.
+2. Element access and extration via method
+3. Iterable(= you can use the for-of-loop)
+4. Size (length) adjusts dynamically;
+5. Duplicate values are not allowed(i.e Unique value only)
+6. Deletion and finding elements is trivial and fast. 
+
+=================XXXXXXXXX=====================
+Arrays Vs Sets;
+
+# Arrays
+	1. You can always use arrays.
+	2. Must-use if order matters and / or 
+	duplicate are wanted;
+
+
+# Sets;
+	1. Only usable if order does not matter
+		and you can only need unique values
+
+	2. Can simplify data access (e.g finding, deletion) compared to arrays.
+
+
+=================XXXXXXXXX=====================
+
+# Objects - A Closer Look
+
+	{
+		name:'Max',
+		age:31,
+		greet(){console.log('Hi,I am'+ this.name)}
+	}
+
+ 1. Unordered key-value pairs of data;
+ 2. ELements access via key (property name)
+ 3. Not iterable (only with for-in)
+ 4. Keys are unique, values are not
+ 5. keys have to be strings,numbers,symbols.
+ 6. Can store data & "functionality"(methods)	
+
+
+=================XXXXXXXXX=====================
+Maps - A CLoser Look;
+	new Map()
+	map.set('name','Max')
+	map.set('name','Max')
+	map.set(true,true) // Boolean key
+
+	1. Ordered key-value pairs of data.
+	2. Element access via key;
+	3. Iterable(= you can use the for-of-loop)
+	4. keys are unique, values are not.
+	5. keys can be anything (include reference values like arrays)
+	6. Pure data storage, optimized for data access.
+
+
+
+=================XXXXXXXXX=====================
+# Objects Vs Maps;
+
+Objects
+	1. Very versatile construct and data storage in javascript;
+	2. Must- use if you want to add extra functionality.
+
+Maps;-
+	1. Focused on data storage and access.
+	2. Can simplify and imporve data access compared to objects.
+
+
+=================XXXXXXXXX=====================
+WeakSet & WeakMap:-
+	1. Variations of Set and Map --> 
+	Values and keys are only "weakly referenced" -->
+	Garbage collection can delete values and keys if not used anywhere else in the app.
