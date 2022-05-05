@@ -1,5 +1,5 @@
 import { LinkedList } from './linked-list.js';
-// import syntax needed "npm i global http-server"> run http-server
+// import syntax needed "npm i global http-server"> run http-server & copy the port number; and paste; e.g :- http://localhost:8081/
 
 class Stack {
     constructor() {
