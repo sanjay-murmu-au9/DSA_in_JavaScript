@@ -195,14 +195,14 @@ Queue;-[FIFO: first in,first Out] A Simpified array.(we work on both end)
 
 Queue Time Complexity & Arrays;
 
-			Queues				Arrays
-Element Access	o(1) "but limited to		O(1)
-			first element"
+						Queues							Arrays
+			
+Element Access			O(1) "but limited tofirst element"	O(1)
 
-Insertion atEnd	O(n) With data loss		O(1)
-Inserion at Beginning	O(1)				O(n);
-Insertion in Middle	O(n) with data loss	O(n);
-Search Elements		O(n) With Data loss	O(n)
+Insertion atEnd			O(n) With data loss				O(1)
+Inserion at Beginning	O(1)							O(n);
+Insertion in Middle		O(n) with data loss				O(n);
+Search Elements			O(n) With Data loss				O(n)
 
 ==================XXXX=============================
 # Introducing Hash Tables;

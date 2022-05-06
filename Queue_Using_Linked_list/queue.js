@@ -1,4 +1,4 @@
-import { LinkedList } from './LinkedListUsingQueue';
+import { LinkedList } from './LinkedListUsingQueue.js';
 
 class Queue {
     constructor() {
@@ -6,10 +6,10 @@ class Queue {
     }
 
     enqueue(value) {
-        this.list.append(value); // unshift to added in thebeggining;
+        this.list.append(value); // new elem are added at the end || FIFO;
     }
     dequeue() {
-        this.list.deleteHead();
+        this.list.deleteHead(); //  will delete the first elem in first || First in First Out;
     }
 
     isEmpty() {

@@ -12,7 +12,7 @@ export class LinkedList {
         }
         this.tail = newNode;
 
-        if (!this.tail) {
+        if (!this.head) {
             this.head = newNode;
         }
 
