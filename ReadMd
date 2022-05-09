@@ -218,6 +218,25 @@ Value: 'Max'('name'--> 1 index)
 
 
 
+# Hash Table Time Complexity & Arrays & Objects;
+
+						Hash Tables					Arrays			objects
+
+Element Access			O(1) in theory				O(1)				O(1)
+						O(n) with lots of hash collision
+
+Insertion at End		O(1)						O(1)				O(1)
+						O(n) with lots of hash collision
+
+Insertion at Beginning	O(1)						O(n)				O(1)
+						O(n) with lots of hash collision
+
+Inserion at Middle		O(1)						O(n)				O(1)
+						O(n) with lots of hash collision						
+
+Search ELements			O(1)						O(n)				O(1)
+						O(n) with lots of hash collision
+
 ==================XXXX=============================
 # Module Content;
 	# Tree Structures
