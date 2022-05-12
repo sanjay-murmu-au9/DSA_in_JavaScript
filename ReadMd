@@ -10,7 +10,7 @@ Example:- Arrays, Objects, Maps, Sets;
 	[1,3,6,2]
 	1. Insertion order is kept/memorize;
 	2. Element can be access via index;
-	3. Elemeny (= you can use the for-of-loop)
+	3. Element (= you can use the for-of-loop)
 	4. Size (length) adjusts dynamically;
 	5. Deletion and findling elements can be require "extra work".
 
@@ -117,7 +117,7 @@ Nowadays, Javascript has dynamic arrays (dynamic re-sizing built in)and memory i
 # LinkedList can be useful if you do a lot of insertions at the beginning of the lists - 
 	linked lists are faster then array at this.
 
-# TIme COmplexity & Big O Notation;
+# Time Complexity & Big O Notation;
 funtion sumUp(n){
    let result = 0;
   for (let i=1; i<= n; i++){
