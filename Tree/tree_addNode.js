@@ -56,6 +56,26 @@ class Node {
             existingChildNode.removeNode(segments.slice(1).join('/')); // slice (str,end)
         }
     }
+
+    find(value) {
+        // console.log(this, "<===this");
+        //Breath -first
+
+        for (const child of this.children) {
+            // console.log(child.value, "<==child")
+            if (child.value === value) {
+                return child;
+            }
+        }
+
+        for (const child of this.children) {
+            const nestedChildNode = child.find(value);
+            if (nestedChildNode) {
+                return nestedChildNode;
+            }
+        }
+    }
+
 }
 
 class Tree {
@@ -70,6 +90,14 @@ class Tree {
     removeNode(path) {
         this.root.removeNode(path);
     }
+
+    find(value) {
+        if (this.root.value === value) {
+            return this.root;
+        }
+
+        return this.root.find(value)
+    }
 }
 
 const filesystem = new Tree('/');
@@ -79,5 +107,7 @@ filesystem.add('games/cod.exe');
 filesystem.add('games/cod2.exe');
 
 filesystem.removeNode('games/cod.exe');
+
+console.log(filesystem.find('cod2.exe'), "<===find");
 
 console.log(filesystem);
