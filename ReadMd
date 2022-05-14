@@ -265,23 +265,25 @@ Search ELements			O(1)						O(n)				O(1)
 	5. Size:-	 The total number of nodes in a tree.
 
 # Tree Time Complexity
-				Tree				Array
+						Tree				Array
 Access/Search		Worst Case: O(n)		O(1) (with Index)
-								O(n) (search)
+											O(n) (search)
 
 Insertion			Worst Case: O(n)		O(1) at end
-								O(n) at beginning
+											O(n) at beginning
 
-Removal			Worst Case: O(n)		O(1) at end
-								O(n) at the beginning
+Removal				Worst Case: O(n)		O(1) at end
+											O(n) at the beginning
 
 ## Traversing Tree;
-	1. Depth-First:-	Dig into the tree first and explore sibling tress step by step.
+	1. Depth-First:-	Dig into the tree (left hand side and dig into) first and explore sibling tress step by step.
 
 	2. Breadth-First:- Evaluate all the sibling values first before you dig into the tree in depth.
 	
+
 ==================Binary Search Trees==========================
-# Binary Search Trees;
+==================Binary Search Trees==========================
+# Binary Search Trees;:- YOu have only 2 most child node no more then 2 direct child is allowed;
 # A Tree for Sorted Data (Works with any value types!) 
 # Every Node has at most 2 child nodes
 # Left child Nodes has Smaller node 
