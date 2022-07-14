@@ -135,14 +135,14 @@ funtion sumUp(n){
 
 # Linked List Time Complexity & Arrays;
 				Linked List			Arrays;
-Element Access		 O(n)				O(1); --> With index
+Element Access		 	O(n)				O(1); --> With index
 
-Insertion at End		With tail: O(1)		O(1)
+Insertion at End		With tail: O(1)			O(1)
 				without tail: O(n)	
 
-Insertion at Beginning	O(1)				O(n); // need to shift all the other element;
+Insertion at Beginning		O(1)				O(n); // need to shift all the other element;
 
-Insertion in Middle	Search time + O(1)	O(n);
+Insertion in Middle		Search time + O(1)		O(n);
 
 Search Elements 		O(n)				O(n)
 
@@ -265,8 +265,8 @@ Search ELements			O(1)						O(n)				O(1)
 	5. Size:-	 The total number of nodes in a tree.
 
 # Tree Time Complexity
-						Tree				Array
-Access/Search		Worst Case: O(n)		O(1) (with Index)
+				Tree				Array
+Access/Search			Worst Case: O(n)		O(1) (with Index)
 											O(n) (search)
 
 Insertion			Worst Case: O(n)		O(1) at end
