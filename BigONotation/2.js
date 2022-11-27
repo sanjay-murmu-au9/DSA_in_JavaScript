@@ -70,3 +70,28 @@ function same(arr1, arr2) {
 
 
 same([1, 2, 3, 4], [9, 1, 4, 16])
+
+// ANAGRAMS
+// Given two strings, write a function to determine if the second string is an anagram of the first.
+// An anagram is a word, phase or name formed by rearraging the letters of another, such as cinema,formed from iceman.
+
+validAnagram('', '') // true;
+validAnagram('aaz', 'zza') // false;
+validAnagram('rat', 'car') // false;
+validAnagram('awesome', ' awesom') // false
+validAnagram('qwerty', 'qeywrt') // true
+validAnagram('texttwistime', 'timetwisttext') // true
+
+
+function anagram(str1, str2) {
+    if (str1.length !== str2.length) {
+        return false;
+    }
+
+    for (let i = 0; i < str1.length; i++) {
+
+    }
+
+}
+
+anagram('', '')

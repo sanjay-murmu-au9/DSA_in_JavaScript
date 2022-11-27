@@ -79,7 +79,7 @@ WE can use big O notation to analyze space complexity:
         2. What are the input that go into the problem?
             # two number
         3. What are the output that should come from the solution to the problem.
-        4. Can the output be determined from the inputs? Do I have enoght info to solve the problems? 
+        4. Can the output be determined from the inputs? Do I have enough info to solve the problems? 
         5. How should I label the important picece of data that are a part of the problem?
 
 
