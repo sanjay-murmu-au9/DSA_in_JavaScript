@@ -1,0 +1,953 @@
+ Big O Notation Objectives:-
+	1. Motivate the need for something like Big O Notation.
+	2. Describe what Big O Notation is
+	3. Simplify Big O Expressions
+	4. Define "Time complexity and space complexity";
+ 5. Evaluate the time complexity and the space complexity of different algorithms using Big O Notation 6. Describe what a logarithms;
+
+#write a function that accepts a string input and return a reversed copy.
+
+ function accpString(str)
+ {
+     let reverStr = [];
+     let length = str.length - 1;
+
+     for (let i = length; i >= 0; i--)
+     {
+         reverStr.push(str[i])
+     }
+     return reverStr.join();
+ }
+
+ console.log(accpString('sanjaymurmu'))
+
+     accpString('sanjaymurmu') // umrumyajnas
+
+     // using inbulid method;
+     function reverseStr(str)
+ {
+     let strArr = str.split("");                      //['s','u','n']
+     let reverseStr = strArr.reverse()                //['n','u','s'];
+                      let reveStr = reverseStr.join() //
+                                    return reveStr;
+ }
+
+ // console.log(reverseStr('iceman'))
+
+ // using three method;
+
+ function chainingMethod(str){
+     return str.split("").reverse().join('')
+
+ }
+
+ console.log(chainingMethod('sanjay'))
+
+     // Reverse string with a Decrementing;
+
+     function reverseString(str)
+ {
+     let newString = '';
+
+     for (let i = str.length - 1; i >= 0; i--)
+     {
+         newString = newString + str[i];
+     }
+     return newString;
+ }
+
+ console.log(reverseString('yajnas'))
+
+#write a function that calculate the sum of all numbers from 1 upto and including some number n.
+
+     function calCulateSum(n)
+ {
+     let totalSum = 0;
+     for (let i = 1; i <= n; i++)
+     {
+         totalSum += i; // 1+2+3=6
+     }
+     return totalSum;
+ }
+
+ console.log(calCulateSum(3))
+
+     function calCulateSum(n)
+ {
+     return n * (n + 1) / 2; // 3*4/2 =12/2 = 6 BODMAS
+ }
+
+ console.log(calCulateSum(3))
+
+#What does better mean ?
+     1. Faster
+     ? 2. Less memory - intensive
+           3. More readable
+#CHECK
+           function addUpTo(n)
+ {
+     let total = 0;
+     for (let i = 1; i <= n; i++)
+     {
+         total += i;
+     }
+     return total;
+ }
+
+ let t1 = performance.now();
+ addUpTo(10000000)
+     let t2 = performance.now()
+                  console.log(`Time Elapsed
+                              : ${(t2 - t1) / 1000} seconds.`) // to covert from minisec to sec;
+
+              function addUpTo1(n){
+                  return n * (n + 1) / 2} let t1 = performance.now();
+ addUpTo1(10000000)
+     let t2 = performance.now()
+                  console.log(`Time Elapsed
+                              : ${(t2 - t1) / 1000} seconds.`) // to covert from minisec to sec;
+
+#Performance Tracker
+
+              function printAllPair(n)
+ {
+     for (let i = 0; i < n; i++)
+     {
+         for (let j = 0; j < n; j++)
+         {
+             console.log(i, j)
+         }
+     }
+ }
+
+ printAllPair(5) // O(n)* O(n) --> O(n^2)
+
+#countUpAndDown;
+
+     function countUpandDown(n)
+ {
+     console.log('Going up') for (let i = 0; i < n; i++){
+         console.log(i)} console.log('At the top! \nGoing down...');
+     for (let j = n - 1; j >= 0; j--)
+     {
+         console.log(j);
+     }
+     console.log('Back down. Bye!')
+ }
+
+ countUpandDown(9)
+
+#Thumb rule to determine the time complexity of tha algorithm;
+         1. O(2n)-- -- > O(n) 2. O(500)-- -- > O(1) 3. O(13n ^ 2)-- -- > O(n ^ 2) 4. O(n + 10)-- -- > O(n) 5. O(1000n + 50)-- -- > O(n) 6. O(n ^ 2 + 5n + 8)-- -- > O(n ^ 2)
+#Note : -These rules won't Always work, but are helpful starting point.
+                                                                                                                                                                        1. Arithmetic operations are constant
+     2. variable assignment are constant;
+ 3. accessing element are arr or Obj by key is Constant;
+ 4. In a loop the time complexity is the length of the loop;
+ whatever happen inside the loop;
+
+ function logAtLeast5(n)
+ {
+     for (let i = 0; i <= Math.max(5, n); i++)
+     { // which ever is bigger will be consider , 5,n
+         console.log(i);
+     }
+ }
+
+ logAtLeast5(n) // O(n)
+
+     function logAtLeast5(n)
+ {
+     for (let i = 0; i <= Math.min(5, n); i++)
+     { // which ever is smaller will be consider , 5,n
+         console.log(i);
+     }
+ }
+
+ logAtLeast5(n) // O(1)
+
+#Space Complexity;
+     How can we analyze the runtime of an algorithm as the size of the input increases.How much additional memory do we need to allocate in order to run the code in our algorithm;
+
+#Rule of thumb : -
+ 1. Most primitives(booleans, numbers, undefined, null)
+ are constant space;
+    2. Strings require O(n) space (where n is the string length)
+	3. Reference types are generally O(n), where n is the length for arr, or the number of keys for Objects;
+
+#An Example : -
+    function sum(arr)
+    {
+        let total = 0;
+        for (let i = 0; i < arr.length; i++)
+        {
+            total += arr[i]
+        }
+        return total;
+    }
+
+    sum([ 1, 2, 34, 5 ]) // space Complexity:- O(1);
+
+        ANother example;
+    function double(arr)
+    {
+        let newArr = [];
+        for (let i = 0; i < arr.length; i++)
+        {
+            newArr.push(2 * arr[i]);
+        }
+        return newArr;
+    }
+
+    double([ 1, 2, 3 ]) // space Complexity:- O(n); directly proportional to arr n;
+
+#RECAP;
+#To analyze the performance of an algorithm, We use Big O Notation;
+#Big O Natation can give us a high level understanding of the time or space complexity of an algorithm;
+#Big O Natation doesn't care about precision(स्‍पष्‍ट ), only about general trends (linear?quadratic?constant?)
+#The time or space complexity as measured by Big O depends only on the algorithm, not the hardware used to run the algorithm;
+
+        3. Analyzing Performance of Arrays and Objects
+        OBJectives
+        1. Userstanding how object and arr work through the lens of Big O
+        2. Explain why adding element to the beginning of the arr is costly;
+    3. compare and contrast (comparison between two people or things that shows the differences between them) the runtime for arrays and objects as well as built-in methods;
+
+#Big O of objects
+    1. Insertion - O(1);
+    2. removal - O(1) 3. Searching - O(n);
+    4. Access - O(1);
+    When you don't need any ordering object are an excellent choice!;
+
+        let instructor = {
+            firstName : "kelly",
+            isInstructor : true,
+            favoriteNumber : [ 1, 2, 3, 4 ]
+        }
+
+                         Object.keys(instructor)    // ['firstName', 'isInstructor', 'favoriteNumber']
+                         Object.entries(instructor) // 0: ['firstName', 'kelly'],1: ['isInstructor', true],2: ['favoriteNumber', Array(4)];
+
+                         Object.entries(instructor)[0]; //['firstName', 'kelly']
+
+    instructor.hasOwnProperty('firstName') // true
+
+#ARRAYS;
+        Ordered Lists !;
+    Insertion - It depends Removal - It depends Searching - O(N) //
+        Access
+        - O(1) // constant time
+
+#Simplify
+        1. Find the core dificuilty part that u are trying to achieve;
+    2. Temporarily ignore that difficulty 3. write simplified solution 4. Then incorporate that difficulty back in
+
+        4. Problem Solving Approach : -
+
+#OBjectives : -
+                                      1. WHat is algorithm .2. Devise a plan to solve algorithms 3. Compare and contrast problem solving patterns including frequency counters,
+                                      who
+                                          pointer problem and divide and conquer;
+
+#algorithm is : -a process or set of steps to accomplish a certain task;
+
+#How to Improve ?
+    1. Devise (नया तरीक़ा निकालना) a plan for solving problem.
+	2. Master common problem solving patterns;
+
+#Problem solving
+    1. Understand the problem : -- -- > from Book George Polya;
+    (How to solve it);
+    2. Explore Concrete Examples 3. Break it Down 4. Solve / Simplify 5. Look back and Refactor;
+
+#Understand the Problem;
+    1. Can I restate the problem in my own words ? 2. What are the input that go into the problem ? 3. What are the outputs that should come from the solution to the problem ? 4. Can the output be detemined from the inputs ? In other words, Do I enough information to
+                                                                                                                                                                                                                                                     solve the problem;
+    5. How should I label the important pieces of data that are a part of the problem ?
+
+#Write a function which take two numbers and returns their sum.
+                                                                                      ReUnderstand the question;
+    1. Add two number;
+    2.int, float 3. one number addition;
+    4. function twoFunc(a, b){
+        return a + b}
+
+    twoFunc(4, 5) // 9;
+
+#Expore Examples
+        1. start with simple examples
+        2. Progress to more Complex examples
+        3. Explore examples with empty inputs
+        4. Explore exapmles with invalid Inputs;
+
+#Write a function which takes in a string and returns counts of each character in the string.
+    let result = {} function CharCount(str)
+    {
+        for (let i = 0; i < str.length; i++)
+        {
+            let char = str[i];
+            if (result[char] > 0)
+            {
+                result[char]++
+            }
+            else
+            {
+                result[char] = 1;
+            }
+        }
+    }
+    let myArr = "Your PIN number 1234" CharCount(myArr)
+                    console.log(result) //
+
+                charCount('qqqq')  // {q:4}
+                charCount('hello') // {h:1,e:1,l:2,o:1}
+                charCount('YOur PIN is 1234')
+                //{
+                1 : 1,
+        2 : 1,
+        3 : 1,
+        4 : 1,
+        i : 1,
+        n : 1,
+        ...
+    }
+    charCount() // {}
+        charCount(999)
+        ? ?
+
+#BREAK it DOWM
+          Explicitly write out the steps you need to take.(These forces you to think about the code, you'll write before you write it, and helps you to catch any lingering conceptual issues or misunderstandings before you drive in and
+                                                                                                         and have to warry about details)(e.g language syntax as well)
+              .
+
+#Write a function which takes in a string and returns counts of each character in the string.
+          let result = {};
+    function CharCount(str)
+    {
+        // make obj to return at the end;
+        // loop over the string for each character...,
+        // if the char is a number/string And is a key in obj, then add one(1) to count;
+        // if the char is a number/string and not in Obj, then add it to obj and set value to 1;
+        // if the char is something else (space, period,etc) don't do anything
+        // return obj at end;
+        ________________________________________________
+
+        // make obj to return at the end;
+        let result = {};
+
+        // loop over the string for each character...,
+        for (let i = 0; i < str.length; i++)
+        {
+            let char = str[i].toLowerCase();
+
+            // if the char is a number/string And is a key in obj, then add one(1) to count;
+            if (result[char] > 0)
+            {
+                result[char]++
+            }
+            else
+            {
+                // if the char is a number/string and not in Obj, then add it to obj and set value to 1;
+                result[char] = 1;
+            }
+        }
+        return result;
+    }
+    let myArr = "Your PIN number 1234" CharCount(myArr)
+
+        function
+        charCount(str)
+    {
+        let obj = {};
+        for (let char of str)
+        {
+            char = char.toLowerCase();
+            if (/ [a - z0 - 9] /.test(char))
+            {
+                if (obj[char] > 0)
+                {
+                    obj[char]++;
+                }
+                else
+                {
+                    obj[char] = 1;
+                }
+            }
+        }
+        return obj;
+    }
+    let myArr = "Your PIN number 1234" charCount(myArr) //{1: 1, 2: 1, 3: 1, 4: 1, y: 1, o: 1, u: 2, r: 2, p: 1, …}
+
+        more better way
+
+            function
+            charCount(str)
+    {
+        let obj = {} for (let char of str)
+        {
+            char = char.toLowerCase();
+            if (/ [a - z0 - 9] /.test(char))
+            {
+                obj[char] = ++obj[char] || 1;
+            }
+        }
+        return obj;
+    }
+
+    charCount('Your PIN number 1234'); //{1: 1, 2: 1, 3: 1, 4: 1, y: 1, o: 1, u: 2, r: 2, p: 1, …}
+
+#AlphaNumeric is better then Regex operator;
+
+    function charCount(str)
+    {
+        let obj = {};
+        for (let char of str)
+        {
+            if (isAlphaNumeric(char))
+            {
+                char = char.toLowerCase();
+                obj[char] = ++obj[char] || 1;
+            }
+        }
+        return obj;
+    }
+
+    charCount('HI your pin number is 1234') //{1: 1, 2: 1, 3: 1, 4: 1, h: 1, i: 3, y: 1, o: 1, u: 2, …}
+
+        function isAlphaNumeric(char)
+    {
+        let code = char.charCodeAt(0);
+        if (!(code > 47 && code < 58) && // numeric (0-9)
+            !(code > 64 && code < 91) && // upper alpha (A-Z)
+            !(code > 96 && code < 123))
+        { // lower alpha (a-z)
+            return false;
+        }
+        return true;
+    }
+
+#RECAP !
+    1. Understant the problem 2. Explore Concept Example 3. Break It Down;
+    4. Solve / Simplify;
+    5. Look Back and Refactor your code;
+
+    5. Problem solving Patterns : -Exmaple
+                                      Write a function called Same,
+                                  which accepts two arrays.The function should return true if every value in the array has it's corresponding value squared in the second array. The frequency of values must be the same.
+
+                                  example : -[ 1, 2, 3 ] = [ 4, 1, 9 ] // true
+                                      [1, 2, 3] = [ 1, 9 ]             // false
+                                          [1, 2, 1] = [1, 4, 4]        // false (must be same frequency)
+
+                                  function same(arr1, arr2)
+    {
+        if (arr1.length != = arr2.length)
+        {
+            return false;
+        }
+
+        for (let i = 0; i < arr1.length; i++)
+        {
+            let correctIndex = arr2.indexOf(arr1[i] * *2) // 1*2 = 1, 2*2 = 4 , 3*3 = 9
+                               console.log(correctIndex, "<<<<<<correctIndex") if (correctIndex == = -1)
+            {
+                return false;
+            }
+            arr2.splice(correctIndex, 1) // removeing 1 element;
+        }
+        return true;
+    } let arr1 = [ 1, 2, 3 ] let arr2 = [ 9, 1, 4 ]
+
+                                  same(arr1, arr2) // N^2
+
+#Note : -two loop is always better then nested loop;
+
+#ANAGRAMS;
+                                  GIven two strings,
+                                                       write a function to determine if the second string is an anagram of the first.An anagram is a word,
+                                                       phase or name formed by rearranging the letters of another,
+                                                       such as cinema formed from iceman;
+
+    function anagram(str1, str2)
+    {
+        if (str1.length != = str2.length)
+        {
+            return false;
+        }
+        let obj = {} for (let i = 0; i <= str1.length; i++)
+        {
+            let char = str1[i];
+            obj[char] ? obj[char] += 1 : obj[char] = 1;
+        }
+
+        for (let i = 0; i <= str2.length; i++)
+        {
+            let char = str2[i];
+            if (!obj[char])
+            {
+                return false;
+            }
+            else
+            {
+                obj[char] -= 1;
+                console.log(obj, "<<<<<<<<<<<<<<<<")
+            }
+        }
+        return true;
+    }
+
+    let str = "cinema";
+    let str1 = "iceman";
+    console.log(anagram(str, str1))
+
+#Write a function called sumZero which accpts a sorted array of integers.The function should
+            find the first pair where the sum is 0. Return an array that includes both values that
+        sum to zero
+        or undefined if a pair does not exist.
+
+           sumZero([ -3, -2, -1, 0, 1, 2, 3 ]) // [-3,3]
+           sumZero([ -2, 0, 1, 3 ])            // undefined;
+           sumZero([ 1, 2, 3 ])                // undefined;
+
+           function sumZero(arr)
+    {
+        for (let i = 0; i < arr.length; i++)
+        { //-3
+            for (let j = i + 1; j < arr.length; j++)
+            { //-3+1 = -2
+                if (arr[i] + arr[j] == = 0)
+                { // 3 + 4 === 0
+                    return [ arr[i], arr[j] ];
+                }
+            }
+        }
+    }
+
+    console.log(sumZero([ -3, -2, -1, 0, 1, 2, 3 ])) // O(n^2)
+
+        function sumZero1(arr)
+    {
+        let left = 0;
+        let right = arr.length - 1; // 7
+        console.log(right, '<<<<<right') while (left < right)
+        {
+            let sum = arr[left] + arr[right];
+            if (sum == = 0)
+            {
+                return [ arr[left], arr[right] ];
+            }
+            else if (sum > 0)
+            {
+                right--;
+            }
+            else
+            {
+                left++;
+            }
+        }
+    }
+    console.log(sumZero1([ -4, -3, -2, -1, 0, 1, 2, 3, 4 ]))
+
+#CountUniqueValues
+        Implement a function called countUniqueValues,
+        which accepts a sorted array, and counts the unique values in the array.There can be negative numbers in the array.but it will always be sorted.
+
+                                          countUniqueValues([ 1, 1, 1, 1, 1, 2 ])                      // 2
+                                          countUniqueValues([ 1, 2, 3, 4, 4, 4, 4, 7, 7, 12, 12, 13 ]) // 7 unique
+                                          countUniqueValues([])                                        // 0
+                                          countUniqueValues([ -2, -1, -1, 0, 1 ])                      // 4
+
+                                          function countUniqueValues(arr)
+    {
+        if (arr.length == = 0)
+            return 0;
+        let i = 0; // 2
+        for (let j = 1; j < arr.length; j++)
+        { // 1
+            if (arr[i] != = arr[j])
+            { // 0 !==1
+                i++;
+                arr[i] = arr[j] // 1 = 1
+            }
+        }
+        return i + 1; // 1+1 = 2
+    }
+
+console.log(countUniqueValues([1,1,1,1,1,2])) // O(n) linear time complexity;
+
+#SLIDING WINDOW : -
+	This pattern involves creating a window which can either be an array or number from 
+	one position to another.
+	Depending on a certain condition, the window either increases or closes (and a new window
+      is created)
+
+	Very useful for keeping track of a subset of data in an array/string etc.
+
+
+
+Write a function called maxSubarraySum which accepts an array of integers and a number called
+n. The function should calculate the maximum sum of n consecutive elements in the array.
+
+function maxSubarraySum(arr,num)
+{
+    if (num > arr.length)
+    {
+        return null;
+    }
+    console.log(arr.length - num + 1, "<length")
+        let max = -Infinity;
+    for (let i = 0; i < arr.length - num + 1; i++)
+    { // 7-2+1=6
+        temp = 0;
+        for (let j = 0; j < num; j++)
+        { // 0
+            // console.log(arr[i],"<<<<<onlyArr")
+            // console.log(j,'JJJJJJJJ')
+            temp += arr[i + j]; // 0
+                                // console.log( temp += arr[i + j],"<<<<<<<")//1+0
+        }
+        if (temp > max)
+        {
+            max = temp;
+        }
+        // console.log(temp,max)
+    }
+    return max;
+}
+
+console.log(maxSubarraySum([ 1, 2, 5, 2, 8, 1, 5 ], 2))
+
+    maxSubarraySum([ 1, 2, 5, 2, 8, 1, 5 ], 2) // 10;
+    maxSubarraySum([ 1, 2, 5, 2, 8, 1, 5 ], 4) // 17;
+    maxSubarraySum([ 4, 2, 1, 6 ], 1)          // 6
+    maxSubarraySum([ 4, 2, 1, 6, 2 ], 4)       // 13
+    maxSubarraySum([], 4)                      // null;
+
+    Refactor
+    function maxSubarraySum(arr, num)
+{
+    let maxSum = 0;
+    let tempSum = 0;
+    if (arr.length < num)
+        return null;
+
+    for (let i = 0; i < num; i++)
+    {                     // 1
+        maxSum += arr[i]; // 1
+    }
+    tempSum = maxSum;
+    for (let i = num; i < arr.length; i++)
+    {
+        tempSum = tempSum - arr[i - num] + arr[i];
+        maxSum = Math.max(maxSum, tempSum);
+    }
+    return maxSum;
+}
+
+console.log(maxSubarraySum([ 1, 2, 5, 2, 8, 1, 5 ], 2)) // O(n) Linear time complexity;
+
+    Given a sorted array of integers,
+    write a function called search, that accepts a value and returns the index where the value passed to the function is located.If the value is not found, return -1.
+
+    search([ 1, 2, 3, 4, 5, 6 ], 4)  // 3
+    search([ 1, 2, 3, 4, 5, 6 ], 6)  // 5;
+    search([ 1, 2, 3, 4, 5, 6 ], 11) // -1;
+
+    function search(arr, num)
+{
+    for (let i = 0; i < arr.length; i++)
+    {
+        if (arr[i] == = num)
+        {
+            return i
+        }
+    }
+    return -1
+}
+
+console.log(search([ 1, 2, 3, 4, 5, 6 ], 4))
+
+    Refactor;
+
+function search(arr, num)
+{
+    let min = 0;
+    let max = arr.length - 1;
+    console.log(min, max, "min_max") while (min <= max)
+    {
+        let middle = Math.floor((min + max) / 2);
+        let currentElement = arr[middle];
+
+        if (arr[middle] < num)
+        {
+            min = middle + 1; // 3+1 = 4
+        }
+        else if (arr[middle] > num)
+        {
+            max = middle - 1;
+        }
+        else
+        {
+            return middle;
+        }
+    }
+    return -1;
+}
+
+console.log(search([ 1, 2, 3, 4, 5, 6 ], 4))
+
+    7. Recurrsion
+
+#Recursion
+    Objectives
+    1. Define what recursion is and how it can be used .2. Understand the two essentail components of a recursive function
+    3. Visualize the call stack to better debug and understand recursive functions
+    4. Use helper method recursion and pure recursion to solve more difficult problems;
+
+#Define what recursion : -A process(a function in our case) that calls itself.
+
+It 's EveryWhere! 1. jSON.parse / JSON.stringify 2. document.getElementById and DOM traversal algorithms 3. Object traversal 4. We will see it with more complex data structures 5. It' s sometimes a clearner alternative to iteration;
+
+#Function
+In almost all program languages,
+    there is a built in data structure that manages what happens
+            when function are invoked.It's named the call stack;
+
+        THE CALL STACK
+            It's stack data structure; Any time a function is invoked it is placed(pushed)
+                on the top of the call stack.When javascript sees the return keyword
+        or when the function ends,
+    the compiler will
+    remove(pop)
+
+function countDown(num)
+{
+    if (num <= 0)
+    {
+        console.log('All done!') return;
+    }
+    console.log(num);
+    num--;
+    countDown(num);
+}
+
+console.log(countDown(5))
+
+    function countDown(num)
+{
+    for (let i = num; i > 0; i--)
+    {
+        console.log(i)
+    }
+    console.log('All done!')
+}
+
+console.log(countDown(5))
+
+    function sumRange(num)
+{
+    if (num == = 1)
+        return 1;
+
+    return num + sumRange(num - 1) // 4 + 3 // 3 + 2 // 1
+}
+
+console.log(sumRange(4)) // 10
+    return 4 +
+    sumRange(3) // 4+6
+    return 3 +
+    sumRange(2) // 3+ 3
+    return 2 +
+    sumRange(1) // 2+1
+    return 1
+
+#Factorial value;
+
+    function factorial(num)
+{
+    let total = 1;
+    for (let i = num; i > 0; i--)
+    {
+        total *= i;
+    }
+    return total
+}
+
+console.log(factorial(3)) // 6
+
+#Factorial using recursive
+
+    function factorial(num)
+{
+    if (num == = 1)
+        return 1;
+
+    return num * factorial(num - 1)
+}
+
+console.log(factorial(4))
+
+    Where things go wrong;
+1. forgot base case;
+2. forgot to return or returning the wrong things !3. Stack overflow !
+
+#Helper Method Recursion;
+    let result = [] function collectOddValues(arr)
+{
+    function helper(helparrInput)
+    {
+        if (helparrInput.length == = 0)
+        {
+            return;
+        }
+        if (helparrInput[0] % 2 != = 0)
+        {
+            result.push(helparrInput[0])
+        }
+        helper(helparrInput.slice(1))
+    }
+    helper(arr) return result;
+}
+
+                 console.log(collectOddValues([ 1, 2, 3, 5, 4, 6, 7, 8 ]))
+
+#Pure Recursion
+                     find the odd value out;
+
+function collectOddValues(arr)
+{
+    let newArr = [];
+
+    if (arr.length == = 0)
+        return newArr;
+
+    if (arr[0] % 2 != = 0)
+    {
+        newArr.push(arr[0]);
+    }
+
+    newArr = newArr.concat(collectOddValues(arr.slice(1)));
+    return newArr;
+}
+
+console.log(collectOddValues([ 1, 2, 3, 5 ]))
+    [1]
+        .concat(collectOddValues[2, 3, 5]) //
+            []
+        .concat(collectOddValues[3, 4, 5])
+            [3]
+        .concat(collectOddValues[4, 5]) //
+            []
+        .concat(collectOddValues[5]) // [].concat[5]
+            [5]
+        .concat(collectOddValues[])
+            []
+
+    Pure Recursion Tips : -
+#For arrays, use methods like slice, the spead operator, and concat that copies of arrays
+                          so you do not mutate(to change into a new form) them.
+#Remember that string are immutables(unable to be changed.) so you will need to use
+                          methods like slice,
+    substr, or substring to make copies of strings.
+
+#To make copies of objects use Object.assign, or the spread operator.
+
+                10.Searching Algorithms
+                OBjectives : -1. Describe what a searching algorithm is
+                             2. implement linear seach on arrays
+                             3. implement binary seach on sorted arrays
+                             4. Implement a naive string seaching algorithm
+                             5. Implement the KMP string searching algorithm
+
+                             Linear seach Pseudocode
+                             Function accepts an array and a value Loop through the array and check if the current
+                             array element is equal to the value,
+    If it is return the index at which the element is found
+    If the value is never found,
+    return -1;
+
+function linearSearch(arr, num)
+{
+    for (let i = 0; i < arr.length; i++)
+    {
+        if (arr[i] == = num)
+        {
+            return i
+        }
+    }
+    return -1;
+}
+
+console.log(linearSearch([ 1, 2, 4, 6, 8, 89, 35, 21 ], 10))
+
+#Linear Search
+#Binary Seach(work only on sorted array) : Divide and conquere;
+
+    Binary search Pseudocode;
+1. THe function accepts a sorted array and a value
+    create a left pointer at the start of the array,
+    and a right pointer at the end of the array
+
+#While the left pointer comes before the rigth pointer:
+        *create a pointer in the middle
+            *If you find the value you want,
+    return the index * If the value is too small, move to the left pointer up *If the value is too large, move the right pointer down
+#If you never find the value, return -1;
+
+                                                                                                              function
+                                                                                                              binarySearch(arr, num)
+{
+    let left = 0;
+    let right = arr.length - 1;
+
+    while (left <= right)
+    {
+        let middle = Math.floor((left + right) / 2);
+        let currentElement = arr[middle] if (arr[middle] < num)
+        {
+
+            left = middle + 1;
+        }
+        else if (arr[middle] > num)
+        {
+            right = middle - 1;
+        }
+        else
+        {
+            return middle;
+        }
+    }
+    return -1;
+}
+
+console.log(binarySearch([ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ], 10))
+
+    or
+
+    function binarySearch(arr, elem)
+{
+    let start = 0;
+    let end = arr.length - 1;
+    let middle = Math.floor((start + end) / 2) while (arr[middle] != = elem && start <= end)
+    {
+        if (elem < arr[middle])
+            end = middle - 1;
+        else
+            start = middle + 1;
+        middle = Math.floor((start + end) / 2);
+    }
+    return arr[middle] == = elem ? middle : -1;
+}
+
+console.log(binarySearch([ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ], 10)) // wosrt Case & Average case O(log n)
+                                                                    // O(1) Best case;
+
+#O(1)-- --> Excellent;
+#O(log n)--->Good
+#O(n)-- --->Fair;
+#O(n log n)-- --->Bad;
+#O(n ^ 2)-- -- --->Harrible
+#O(2 ^ n)-- -- --->Horrible
+#O(n !)-- -- -- -- --> Horrible;
+
+#Naive String Search;
