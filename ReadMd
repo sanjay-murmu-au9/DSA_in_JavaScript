@@ -174,16 +174,16 @@ Search Elements 		O(n)				O(n)
 # Stack Time Complexity & Arrays:-
 
 				stacks					Arrays
-Element Access		0(1)						O(1) //bcs access them by index
+Element Access		        0(1)					O(1) //bcs access them by index
 			   	But limited to "top element"
 
-Insertion at End		O(1)						O(1)
+Insertion at End		O(1)					O(1)
 
-Insertion at Begining	O(n) With "Data Loss"			O(n)
+Insertion at Begining	O(n) With "Data Loss"			 	O(n)
 
-Insertion in Middle	O(n) With "Data Loss"			O(n)
+Insertion in Middle	O(n) With "Data Loss"				O(n)
 
-Search Elements		O(n) With "Data Loss"			O(n)
+Search Elements		O(n) With "Data Loss"				O(n)
 
 
 ===================XXXX=========================
@@ -222,13 +222,13 @@ Value: 'Max'('name'--> 1 index)
 
 						Hash Tables					Arrays			objects
 
-Element Access			O(1) in theory				O(1)				O(1)
+Element Access					O(1) in theory					O(1)			O(1)
 						O(n) with lots of hash collision
 
-Insertion at End		O(1)						O(1)				O(1)
+Insertion at End				O(1)						O(1)			 O(1)
 						O(n) with lots of hash collision
 
-Insertion at Beginning	O(1)						O(n)				O(1)
+Insertion at Beginning	O(1)									O(n)			O(1)
 						O(n) with lots of hash collision
 
 Inserion at Middle		O(1)						O(n)				O(1)
