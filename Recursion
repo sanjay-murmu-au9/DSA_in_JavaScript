@@ -1,0 +1,148 @@
+# Recursion
+Objectives 
+	1. Define what recursion is and how it can be used.
+	2. Understand the two essentail components of a recursive function
+	3. Visualize the call stack to better debug and understand recursive functions
+	4. Use helper method recursion and pure recursion to solve more difficult problems;
+
+
+# Define what is recursion:- A process (a function in our case) that calls itself.
+
+It's EveryWhere!
+	1. jSON.parse / JSON.stringify
+	2. document.getElementById and DOM traversal algorithms
+	3. Object traversal
+	4. We will see it with more complex data structures
+	5. It's sometimes a clearner alternative to iteration;
+	
+# Function
+ In almost all program languages, there is a built in data structure that manages what happens
+	when function are invoked. It's named the call stack;
+
+THE CALL STACK
+	It's stack data structure;
+	Any time a function is invoked it is placed (pushed) on the top of the call stack.
+	When javascript sees the return keyword or when the function ends, the compiler will
+      remove (pop)
+	
+
+function countDown(num){
+  if(num <= 0){
+   console.log('All done!')
+   return;
+  }
+ console.log(num);
+ num --;
+ countDown(num);//4//3//2//1// all done
+}
+
+console.log(countDown(4))
+
+
+function countDown(num){
+  for(let i=num;i > 0;i --){
+   	console.log(i)
+  }	
+  console.log('All done!')
+}
+
+console.log(countDown(5))
+
+----------------------------------
+
+function sumRange(num){
+  if(num ===1) return 1;
+  
+  return num + sumRange(num-1) // 4 + 3 // 3 + 2 // 1
+}
+
+console.log(sumRange(4)) // 10
+	return 4 + sumRange(3) // 4+6
+		return 3 + sumRange(2) // 3+ 3
+			return 2 + sumRange(1) // 2+1
+				 return 1
+
+# Factorial value;
+
+function factorial(num){
+  let total = 1;
+  for(let i=num; i > 0;i--){
+   total *= i;
+ } 
+ return total
+}
+
+console.log(factorial(3)) // 6
+
+# Factorial using recursive
+
+function factorial(num){
+  if(num === 1) return 1;
+  
+ return num * factorial(num-1)
+
+}
+
+console.log(factorial(4))
+
+Where things go wrong;
+	1. forgot base case;
+	2. forgot to return or returning the wrong things!
+	3. Stack overflow!
+
+# Helper Method Recursion;
+let result = []
+function collectOddValues(arr){
+
+ function helper(helparrInput){
+  	if(helparrInput.length === 0) {
+        return ;
+      }
+      if(helparrInput[0] % 2 !== 0 ){
+         result.push(helparrInput[0])
+      }
+     helper(helparrInput.slice(1))
+  }
+  helper(arr)
+  return result;
+}
+	
+console.log(collectOddValues([1,2,3,5,4,6,7,8])) //1,3,5,7
+
+
+# Pure Recursion
+ find the odd value out;
+
+function collectOddValues(arr){
+  let newArr = [];
+
+  if(arr.length ===0) return newArr;
+ 
+  if(arr[0] % 2 !==0){
+     newArr.push(arr[0]);
+  }
+
+  newArr = newArr.concat(collectOddValues(arr.slice(1)));
+  return newArr;
+
+}
+
+console.log(collectOddValues([1,2,3,5]))
+[1].concat(collectOddValues[2,3,5]) // 
+			[].concat(collectOddValues[3,4,5]) 
+					[3].concat(collectOddValues[4,5]) // 
+						  [].concat(collectOddValues[5]) // [].concat[5]
+								[5].concat(collectOddValues[]) 
+										[]
+
+Pure Recursion Tips:-
+	# For arrays, use methods like slice,the spead operator, and concat that copies of arrays
+	so you do not mutate (to change into a new form) them.
+	# Remember that string are immutables(unable to be changed.) so you will need to use
+	 methods like slice, substr, or substring to make copies of strings.
+
+	# To make copies of objects use Object.assign, or the spread operator.
+#The substring() method extracts characters, between two indices (positions), 
+	from a string, and returns the substring. last(exclusive)
+let text = "Hello world"
+text.substring(1,4) // ell
