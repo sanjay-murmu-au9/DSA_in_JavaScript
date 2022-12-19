@@ -39,7 +39,7 @@ function numberCompare(num1,num2){
    return num1-num2
 }
 
-console.log(numberCompare([6,4,15,10]))//[4,6,10,15]
+console.log([6,4,15,10].sort(numberCompare))//[4,6,10,15]
 
 # Bubble Sort; A sorting algorithm where the largest values bubble up to the top.
 
