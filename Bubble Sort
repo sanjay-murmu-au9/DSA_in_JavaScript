@@ -39,16 +39,16 @@ function numberCompare(num1,num2){
    return num1-num2
 }
 
-console.log([6,4,15,10].sort(numberCompare))//[4,6,10,15]
+console.log(numberCompare([6,4,15,10]))//[4,6,10,15]
 
 # Bubble Sort; A sorting algorithm where the largest values bubble up to the top.
 
 Link: https://visualgo.net/en/sorting?slide=1-2;
 
 [5,3,4,1,2]
-[3,4,1,2,5]
-[3,1,2,4,5]
-[1,2,3,4,5]
+[3,4,1,2,5]//[3,5,4,1,2]
+[3,1,2,4,5] //[3,4,5,1,2]
+[1,2,3,4,5] // [3,4,1,5,2] [3,4,1,2,5]
 
 Many sorting algorithms involve some type of swapping functionality (e.g. swapping to numbers to put them in order)
 // ES5
@@ -65,25 +65,89 @@ const swap = (arr,idx1,idx2) =>{
 
 
 Bubble Sort Pseudocode
-	* Start looping with a variable called i the end of the array towards the begining;
+	* Start looping with a variable called i, the end of the array towards the begining;
 	* Start an inner loop with a variable called j from the beginning untill i-1;
 	* If arr[j] is greater than arr[j+1], swap those two values!
 	* Return the sorted array;
 
 function bubbleSort(arr){
-  for(let i=arr.length;i > 0;i--){
-	for(let j = 0;j<i-1;j++){
-       console.log(arr,arr[j],arr[j+1]);
-       if(arr[j] > arr[j+1]){
-         let temp = arr[j];
-	    arr[j] = arr[j+1];
-	    arr[j+1] = temp;
+  let noSwap; // optimized with noSwaps;
+  for(let i=arr.length;i > 0;i--){ //4
+	noSwap = true
+	for(let j = 0;j<i-1;j++){ //4-3=1
+       console.log(arr,arr[j],arr[j+1]); //[37,45,29,8],45,29
+       if(arr[j] > arr[j+1]){ //45 > 29
+         let temp = arr[j]; //45
+	    arr[j] = arr[j+1];//45=45
+	    arr[j+1] = temp;//45
+	    noSwap = false;
         } 
       }
      console.log('ONE PASS COMPLETE!')
+     if(noSwap) break
    }
    return arr;
 }
 
+console.log(bubbleSort([37,45,29,8])) // [ 8,29,37,45 ] // O(n^2)
+
+or
+function bubbleSort(arr){
+ const swap = (arr,idx1,idx2)=>{
+  [arr[idx1],arr[idx2]] = [arr[idx2],arr[idx1]];
+ };
+ for(let i=arr.length;i>0;i--){
+  for(let j=0;j< i-1;j++){
+    if(arr[j] > arr[j+1]){
+        swap(arr,j,j+1)
+    }
+  }
+ }
+ return arr;
+}
+
+console.log(bubbleSort([5,3,4,1,2]))
+
+//Or
+function bubbleSort(arr){
+  for(let i=0;i<arr.length;i++){
+   for(let j=0;j<arr.length;j++){
+	console.log(arr,arr[j], arr[j+1])
+      if(arr[j] > arr[j+1]){ //5 > 3
+       //swap
+	 let temp =arr[j]; // 5
+       arr[j] = arr[j+1]; //5 = 3
+	 arr[j+1] = temp; //3
+      }
+    }
+  }
+ return arr
+}
+
 console.log(bubbleSort([5,3,4,1,2])) // [ 1, 2, 3, 4, 5 ]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
