@@ -1,0 +1,99 @@
+
+# What is a linked List?
+     A data structure that contains a head, tail and length property.
+
+	Linked Lists consist of nodes, and each node has a value and a pointer to another
+	 node or null.
+
+Example of Singly Linked Lists
+
+  Head		Length = 4		Tail
+   4  --->	  6 --->		8 ----> 2 ---> null;
+
+# Comparison with Arrays
+	List
+	1. DO not have indexes!
+	2. Connected via nodes with next pointer
+	3. Random access is not allowed
+
+	# Arrays
+	1. Indexed in order!
+	2. Insertion and deletion can be expensive
+	3. Can quickly be accessed at a specific index;
+
+
+# Pushing pseudocode
+	1. This function should accept a value
+	2. Create a new node using the value passed to the function	
+	3. If there is no head property on the list, set the head and tail to be newly 
+	created node;
+	4. Otherwise set the next property on the tail to be the new node and set the tail 	property on the list to be the newly created node;
+	5. Increment the length by one;
+	6. Return the linked list.
+
+# PoPping pseudocode
+	1. If there are no nodes in the list return undefined
+	2. Loop through the list untill you reach the tail
+	3. set the next property of the  2nd to last node to be null;
+	4. Set the tail to be the 2nd to last node
+	5. Decrement the length of the list by 1
+	6. Return the value of the node removed
+
+class Node{
+    constructor(val){
+     this.val = val;
+	this.next = null
+    }
+}
+
+class SinglyLinkdList{
+  constructor(){
+   this.head = null;
+   this.tail = null;
+   this.length = 0
+  }
+  
+  push(val){
+    const newNode = new Node(val);
+    if(!this.head) {
+	this.head = newNode;
+	this.tail = this.head;
+    }else{
+     this.tail.next = newNode;
+     this.tail = newNode;
+    }
+    this.length ++;
+   return this; // to return whole list;
+  }
+
+# Pop remove a node from the end of the linked list;
+ pop(){
+	if(!this.head) return undefined;
+	var current = this.head;
+	var newTail = current;
+	while(current.next){
+        newTail = current;
+	  current = current.next;   
+      } 
+      //console.log(current.val) // GOODBYE
+	//console.log(newTail.val) // HELLO
+     this.tail = newTail;
+     this.tail.next = null;
+     this.length --;
+     if(this.length === 0){
+      this.head = null;
+	this.tail = null;
+     }
+     return current;
+   }
+	
+}
+
+// HELLO --> GOODBYE --> !
+//   c			
+//   newTail
+let link = new SinglyLinkdList()
+
+link.push('Hi')
+link.push('Hello')
+link.push('!')
