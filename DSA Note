@@ -1,0 +1,172 @@
+# DATA STRUCTURE
+	1. Binary Search Trees
+	2. Queues
+	3. Singly Linked Lists
+	4. Undirected Unweighted Graphs
+	5. BInary Heaps
+	6. Directt Graphs
+	7. Hash Tables
+	8. Doubly Linked Lists
+	9. Stacks
+
+# What Do THey DO?
+	Data structures are collections of values, the relationships amoung them, and the
+ 	function or operations that can be applied to the data.
+
+	or
+	DSA is a fundamental concept in computer sci and programming that deal with how to 	store data and manipute effectively.
+
+      Data structures refer to how data is stored in a computer's memory,
+	while algorithms are a set of instructions used to solve problems and perform tasks.
+
+
+# Why are So Many?
+  Different data structures excel at different things. some are highly specialized, while
+  others (like arrays) are more generally used.
+
+
+# Why to Care?
+	The more time you spend as a developer, the likely you'll need to use one of thes data
+	structures.
+
+And of course ....INTERVIEWS
+Eg Can you reverse a singlyly linked list?
+	Can you implement a priority queue
+	Can you balance a binary tree
+	Can you ordered list with fast inserts/ removals at the beginning and end; (linklist question)
+
+# Which is Best Data Strucure
+	THey all excel in diffrent situation;
+
+
+ES2015 syntax Class SYNTAX
+Objects:-
+	1. Explain what is class is
+	2. Understand how javascript implements the idea of classes
+	3. Define terms like abstraction,encapsulation and polymorphism
+	4. use ES2015 classes to implement data structures.
+# 1. Explain what is class is;
+	A blueprint that when created make objects known as intances.
+
+class Student{
+    constructor(firstName,lastName,year){
+ 	 this.firstName = firstName;
+	 this.lastName = lastName;
+	 this.grade = year;
+    }
+}
+
+
+const firstName = new Student('colt','steele',3)
+const lastName = new Student('sanjay','Murmu',3)
+
+
+
+# Instance Methods (will work on invisible instance)
+
+  fullName(){
+   return `Your full name is ${this.firstName} ${this.lastName}`;
+  }
+
+
+//// Example
+
+class Student{
+     constructor(firstName,lastName,year){
+   	this.firstName = firstName;
+	this.lastName = lastName;
+ 	this.grade = year;
+	this.tardies = 0;
+     }
+
+    fullName(){
+     return `Your full name is ${this.firstName} ${this.lastName}`;
+   }
+
+   markLate(){
+     this.tardies +=1;
+     if(this.tardies >= 3){
+       return "You are expelled"
+     }
+
+     return `${this.firstName} ${this.lastName} has been late ${this.tardies} times`;
+   }
+
+   static enrollStudent(){
+    return 'Enrolled students'
+   }
+}
+
+const firstName = new Student('Calt','Murmu',3)
+firstName.markLate() // 'Calt steel has been late 1 times'
+
+Student.enrollStudent()
+
+/////////////////////////
+
+class Point{
+  constructor(x,y){
+    this.x = x;
+    this.y = y
+  }
+
+  static distance(a,b){
+   const dx = a.x - b.x;
+   const dy = a.y - b.y;
+
+  return Math.hypot(dx,dy);
+  }
+}
+
+const p1 = new Point(5,5);
+const p2 = new Point(10,10)
+
+Point.distance(p1,p2)
+
+##Recap##
+1. Classes are blueprints that when created make objects known as intances
+2. Classes are created with the new keyword
+3. The constructor function is a special function that gets run when the clss is instantiated
+4. Instance methods can be added to classes similar to methods in objects
+5. class methods can be added using the static keyword
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
