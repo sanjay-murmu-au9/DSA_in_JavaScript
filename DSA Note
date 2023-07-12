@@ -14,10 +14,10 @@
  	function or operations that can be applied to the data.
 
 	or
-	DSA is a fundamental concept in computer sci and programming that deal with how to 	store data and manipute effectively.
+	DSA is a fundamental concept in computer sci and programming that deal with how to store data and manipute effectively.
 
       Data structures refer to how data is stored in a computer's memory,
-	while algorithms are a set of instructions used to solve problems and perform tasks.
+      while algorithms are a set of instructions used to solve problems and perform tasks.
 
 
 # Why are So Many?
@@ -41,11 +41,11 @@ Eg Can you reverse a singlyly linked list?
 
 ES2015 syntax Class SYNTAX
 Objects:-
-	1. Explain what is class is
+	1. Explain what is class
 	2. Understand how javascript implements the idea of classes
 	3. Define terms like abstraction,encapsulation and polymorphism
 	4. use ES2015 classes to implement data structures.
-# 1. Explain what is class is;
+# 1. Explain what class is;
 	A blueprint that when created make objects known as intances.
 
 class Student{
