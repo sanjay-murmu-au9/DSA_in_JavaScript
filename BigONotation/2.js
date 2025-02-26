@@ -32,7 +32,7 @@ function same(arr1, arr2) {
     }
     return true;
 }
-same([1, 2, 3], [4, 1, 9]) // O(n^3)
+same([1, 2, 3], [4, 1, 9]) // O(n^2)
 
 // With O(n)
 
