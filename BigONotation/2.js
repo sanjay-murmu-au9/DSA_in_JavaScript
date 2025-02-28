@@ -34,7 +34,7 @@ function same(arr1, arr2) {
 }
 same([1, 2, 3], [4, 1, 9]) // O(n^2)
 
-// With O(n)
+// With O(n) fewer loop
 
 function same(arr1, arr2) {
     if (arr1.length !== arr2.length) {
@@ -70,6 +70,32 @@ function same(arr1, arr2) {
 
 
 same([1, 2, 3, 4], [9, 1, 4, 16])
+
+//or litte better
+function same(arr1,arr2){
+  if(arr1.length !== arr2.length) return false;
+  let frequancyCounter1 = {};
+  let frequancyCounter2 = {}
+  
+  for(let i=0;i<arr1.length;i++){
+    frequancyCounter1[arr1[i]] = (frequancyCounter1[arr1[i]] || 0)+1;
+    frequancyCounter2[arr2[i]] = (frequancyCounter2[arr2[i]] || 0)+1;
+  }
+  
+  for(let key in frequancyCounter1){
+    let squaredKey = (key ** 2);
+    if(frequancyCounter2[squaredKey] !== frequancyCounter1[key]){
+      return false;
+    }
+  }
+  
+  return true;
+}
+
+
+
+console.log(same([1,2,3],[1,4,9])) // true
+console.log(same([1,2,3],[9,4,10])) // false
 
 // ANAGRAMS
 // Given two strings, write a function to determine if the second string is an anagram of the first.
