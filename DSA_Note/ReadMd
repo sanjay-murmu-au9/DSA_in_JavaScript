@@ -951,3 +951,26 @@ console.log(binarySearch([ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ], 10)) // wosrt Cas
 #O(n !)-- -- -- -- --> Horrible;
 
 #Naive String Search;
+
+# 25 most asked interview question and answers
+function pallindrome(str){
+  let len = str.length;
+
+  for(let i=0;i<len/2;i++){
+    if(str[i] !== str[len - 1 - i]){
+      return console.log('its not pallindrome!!')
+    }
+  }
+  console.log('Its pallindrome!!')
+}
+
+
+pallindrome('levEl');
+
+
+
+
+
+
+
+
