@@ -995,6 +995,26 @@ pallindrome('levEl');
 25. Find the Longest Palindromic Substring
 
 
+#4. Find the First Non-Repeating Character 
+function findNonRepeatingzStr(str){
+ let obj= {}
+  for(let i=0;i<str.length;i++){
+	if(obj[str[i]] > 0){
+		obj[str[i]] ++
+	}else {
+	 obj[str[i]] = 1
+       }
+  }
+
+ for(let key in obj){
+    if(obj[key] == 1) return key;
+ }
+  return 'no unique key found'
+}
+
+console.log(findNonRepeatingzStr("geeksforgeeks"))
+
+
 
 
 
