@@ -205,10 +205,10 @@
 #To analyze the performance of an algorithm, We use Big O Notation;
 #Big O Natation can give us a high level understanding of the time or space complexity of an algorithm;
 #Big O Natation doesn't care about precision(स्‍पष्‍ट ), only about general trends (linear?quadratic?constant?)
-#The time or space complexity as measured by Big O depends only on the algorithm, not the hardware used to run the algorithm;
+#The time or space complexity is measured by Big O depends only on the algorithm, not the hardware used to run the algorithm;
 
         3. Analyzing Performance of Arrays and Objects
-        OBJectives
+        Objectives
         1. Userstanding how object and arr work through the lens of Big O
         2. Explain why adding element to the beginning of the arr is costly;
     3. compare and contrast (comparison between two people or things that shows the differences between them) the runtime for arrays and objects as well as built-in methods;
