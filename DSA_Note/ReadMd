@@ -1015,6 +1015,48 @@ function findNonRepeatingzStr(str){
 console.log(findNonRepeatingzStr("geeksforgeeks"))
 
 
+## graphql Api with Nodejs
+const express = require('express')
+const { graphqlHTTP } = require('express-graphql')
+const {buildSchema} = require('graphql')
+
+
+//scheam
+const schema = buildSchema(`
+  // query
+  type query {
+      hello:String,
+  },
+  type Mutation {
+      setMessage(message:String):String
+  }
+`);
+
+// Resolver func
+const root = {
+    hello:()=>'welocome to school',
+    setMessage:({ message: newMessage})=>{
+        message = newMessage,
+        return message;
+    }
+};
+
+
+//setup express && Graphql
+const app = express();
+
+app.use('/graphql',graphqlHTTP({
+    schema,
+    rootValues:root,
+    graphiql:true
+}));
+
+
+
+app.listen(4000,()=>{
+    console.log(`Server is runinng on http://localhost:4000`)
+})
+
 
 
 
