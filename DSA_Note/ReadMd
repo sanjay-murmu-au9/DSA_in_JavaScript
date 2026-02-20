@@ -199,7 +199,7 @@
         return newArr;
     }
 
-    double([ 1, 2, 3 ]) // space Complexity:- O(n); directly proportional to arr n;
+    double([ 1, 2, 3 ]) // space Complexity:- O(n); directly proportional to arr n; bcs storeing n num of elem;
 
 #RECAP;
 #To analyze the performance of an algorithm, We use Big O Notation;
@@ -1125,6 +1125,7 @@ function rotateString(str, n){
 }
 
 console.log(rotateString('abcdef', 3)); // Output: 'defabc'
+
 
 
 
