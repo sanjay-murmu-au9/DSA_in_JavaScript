@@ -186,7 +186,7 @@
         return total;
     }
 
-    sum([ 1, 2, 34, 5 ]) // space Complexity:- O(1);
+    sum([ 1, 2, 34, 5 ]) // space Complexity:- O(1) bcs func only use one variable to store as "total";
 
         ANother example;
     function double(arr)
@@ -1125,6 +1125,7 @@ function rotateString(str, n){
 }
 
 console.log(rotateString('abcdef', 3)); // Output: 'defabc'
+
 
 
 
