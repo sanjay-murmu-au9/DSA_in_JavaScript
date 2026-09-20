@@ -68,3 +68,19 @@ Node.js Process
 Instead of creating a worker for every req, we have 4 workers ready to process jobs.
 
 
+# How does Nodejs work internally ?
+: Nodejs uses the chrome's V8 engine to execute javascript. It uses an event driven architecture with an event loop to handle async operations without blocking the main javascript thread. libuv provide the event loop and asychronous I/O ans also has a thread pool for certain operations such as file system, DNS, crypto and compression. WHen and async operation is completes its callback or promises handle through event loop mechanism. For CPU intensive Javascript work would block the event loop so we can uses worker threads or worker pool.
+
+# What is child process in Nodejs
+: A child process is a seprate Operating system process spawned by a nodeJs process. NodeJs provides the child_process module to crate and communicate with child processes. A child process as its own memory and execution environment and can run another nodejs program or even a different runtime such as python.Its useful for process isolation,running external programs or offloading work that is better handled outside the main Node Process.
+
+
+
+                Node.js
+                   │
+       ┌───────────┼────────────┐
+       │           │            │
+   Event Loop   Worker       Child Process
+       │         Thread          │
+       │           │             │
+    API/I/O    CPU-heavy JS   Python/FFmpeg/etc.
