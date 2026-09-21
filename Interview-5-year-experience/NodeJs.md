@@ -84,3 +84,67 @@ Instead of creating a worker for every req, we have 4 workers ready to process j
        │         Thread          │
        │           │             │
     API/I/O    CPU-heavy JS   Python/FFmpeg/etc.
+
+# Event loop In NodeJs
+: NodejS run on javscript primary on a single thread; THe Event loop is the mechanism that allow Nodejs to handle asyncronous operation without blocking that thread. When nodejs start asyc operation such as network call or database req, It doesn't wait synchronous for the result.Once operation is read its callback or promose continuation become eligibleto run, and the Event loop execute it when javascript thread is available. This allows nodejs to handle many I/O operations concurrently.
+
+
+console.log('1')
+
+setTimeout(()=>{
+    console.log(2)
+})
+
+console.log('3')
+
+output
+1,3,2
+
+# SetTimeout Schedule the callback rather than executing it immediatly;
+
+# 3 Important point to memorize;
+1. The Event loop allows Nodejs to handle async operation without blocking the main Javascript thread.
+2. It continuously checks for work that is ready to execute and run the corresponding callbacks or promise continuations.
+3. I/O- bound work well with this model while CPU intensive JS should be moved to worker Threads or worker pool so the main Event loop isn't blocked.
+
+# Event loop doesn't make CPU heavy javascript asychronous;
+
+The Event Loop phases
+
+                 ┌──────────────────┐
+                 │     Timers       │
+                 └────────┬─────────┘
+                          ↓
+                 ┌──────────────────┐
+                 │ Pending Callbacks│
+                 └────────┬─────────┘
+                          ↓
+                 ┌──────────────────┐
+                 │      Idle /      │
+                 │     Prepare      │
+                 └────────┬─────────┘
+                          ↓
+                 ┌──────────────────┐
+                 │       Poll       │
+                 └────────┬─────────┘
+                          ↓
+                 ┌──────────────────┐
+                 │      Check       │
+                 └────────┬─────────┘
+                          ↓
+                 ┌──────────────────┐
+                 │     Close        │
+                 │    Callbacks     │
+                 └────────┬─────────┘
+                          │
+                          └──────→ repeat
+
+
+Main phase you should Know are:-
+1. Timers
+2. Pending callbacks
+3. Idle/ Prepare
+4. Poll
+5. Check
+6. Close callbacks
+
