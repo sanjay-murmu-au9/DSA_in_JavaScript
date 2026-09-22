@@ -148,3 +148,26 @@ Main phase you should Know are:-
 5. Check
 6. Close callbacks
 
+# How do you find out CPU-intensive work in Nodejs ?
+:- I would look into whether Js is spending significant time performing computation rather then waiting for external I/O.
+ex:- include large loops, complex sorting or transformations, image or video processing,cryptographic operations and machine learning calculation. I would measure the execution time and monitor event-loop lag rather assuming someting is CPU-heavy just from the code.If the operation block the main thread for a significant amount of time I'd consider moving it to a Worker Thread, worker Pool or separate process depending on the work load.
+
+# How to monitor Event Loop lag
+Nodejs provide a build-in way 'perf_hooks.monitorEventLoopDelay()'
+
+const {monitorEventLoopDelay} = require("perf_hooks")
+
+const histogram = monitorEventLoopDelay({
+    resolution: 20
+})
+
+histogram.enable();
+
+setInterval(()=>{
+    console.log({
+        min: histogram.min,
+        max: histogram.max,
+        mean: histogram.mean,
+        p99: histogram.percentile(99)
+    });
+},5000)
