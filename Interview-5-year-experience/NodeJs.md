@@ -171,3 +171,25 @@ setInterval(()=>{
         p99: histogram.percentile(99)
     });
 },5000)
+
+
+# What happens when you execute an async function?
+: WHen I execute async function; It always return a promise,The function start executing synchronously until it reach await or return;If it reaches an await for a pending promise, the async function pause at the point and return control to the caller; Once the Promise is settled the remaining part of the function is scheduled to continue ASYNCHRONUSLY.
+
+
+EX :-async function getProduct(){
+    cosole.log('A');
+    const result = await Products.getFindByIf('123');
+    console.log('b')
+
+    return result;
+}
+
+console.log('start');
+
+const result = getProduct();
+
+console.log('end')
+
+outPut:-
+start -> getProduct() -> A -> await Db -> function pauses -> Promise returned --> function resume
