@@ -256,3 +256,60 @@ await Promise.all([
     updateAnalytics,
     Analytics
 ])
+
+# Difference between synchronous and asynchronous APIs?
+
+synchronus
+const fs = require('fs');
+
+const data = fs.readFileSync('message.txt')
+
+console.log(data);
+
+
+async
+const fs = require('fs');
+const data = fs.readFile('message',(err,data)=>{
+    console.log(data)
+})
+
+console.log('continue');
+
+Flow
+Main JS Thread
+      ↓
+Start file read
+      ↓
+Continue other work
+      ↓
+file ready
+      ↓
+callback executes
+
+
+# Synchronus API block the current javascript execution until the operation complete while an async operation start the operation and allow the javascript thread to continue processing other task; once the operation is ready Nodejs it callback or promises handle the async task through Event loop;
+
+
+# What are Streams?
+Steam allow you to process data incrementally rather loading entire data set into memory at once;
+
+5 GB file
+   ↓
+Chunk 1 → process
+Chunk 2 → process
+Chunk 3 → process
+Chunk 4 → process
+...
+
+const fs = require("fs");
+
+app.get("/product-video", (req, res) => {
+
+    const stream = fs.createReadStream("product.mp4");
+
+    stream.pipe(res);
+});
+
+# Buffer ?
+Buffer represent raw binary in Nodejs. Its commonly used with file, images,videos, network data and streams.
+
