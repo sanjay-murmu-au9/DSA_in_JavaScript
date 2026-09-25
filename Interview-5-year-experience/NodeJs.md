@@ -192,4 +192,67 @@ const result = getProduct();
 console.log('end')
 
 outPut:-
-start -> getProduct() -> A -> await Db -> function pauses -> Promise returned --> function resume
+start -> getProduct() -> A -> await Db -> function pauses -> Promise returned --> end  db result arrived ---> function resume-->b
+
+# How does async/await work internally?
+:- Async await is build on top of promises;Async function return a promises where else await wait for promise to settle and then schedule the continuation of async function; It doesn't block the Node Event Loop while underlying async function is in pending.
+
+# What is Callback Hell and how do you avoid it?
+:- Callback hell
+
+createOrder(data,(order)=>{
+    processPayment(order, (payment)=>{
+        updateInventory(order,(inventory)=>{
+            sendEmail(order,(email)=>{
+                invoiceGenerate(order,(invoice)=>{
+                    console.log('done')
+                })
+            })
+        })
+    })
+});
+
+
+YOu get a Pyramid
+createOrder
+   └── payment
+       └── inventory
+           └── email
+               └── invoice
+
+
+This is commonly call pyramid hell;
+
+
+
+# How do you avoid it?
+
+Promise Chain
+createOrder(data)
+        .then(processPayment)
+        .then(updateInventory)
+        .then(sendEmail)
+        .then(invoiceGeneration)
+        .catch(handleError);
+
+# Async awit
+async function processOrder(data){
+    try{
+     const order = await ProcessPayment(order)
+     const inventory = await InventoryUpdate(ordeer)
+     const SendEmail = await sendEmail(inventory)
+     const Invoice = awit InvoiceGeneration(invoice)
+     console.log('done')
+     return Invoice;
+    }.catch(err){
+        console.log(err)
+    }
+}
+
+: Callback hell happen when multiple async operation are depend upon each other and callback are deeply nested, making code hard to read and understand as well maintain. to avoid I uses Promises and async/await only with the centralised error handling.For independent operation I can also uses promise.all to execute concurrently;
+
+await Promise.all([
+    sendEmail,
+    updateAnalytics,
+    Analytics
+])
